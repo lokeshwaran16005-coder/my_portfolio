@@ -173,7 +173,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
         <li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li><li><a href="#certifications">Certifications</a></li>
         <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
-        <li><a class="btn btn-sm magnetic" href="Lokeshwaran_G_Resume.pdf" download>Download Resume</a></li>
+        <li><a class="btn btn-sm magnetic" href="assets/resume.pdf" download>Download Resume</a></li>
       </ul>
     </nav>
   </div>
@@ -189,7 +189,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
       <p class="lead">BSc Computer Science with AI graduate learning to build, deploy and troubleshoot cloud infrastructure on AWS. I practise with Linux, Git, Jenkins, Docker and Terraform to automate deployments the reliable way.</p>
       <div class="cta">
         <a class="btn magnetic" href="#projects">View Projects</a>
-        <a class="btn ghost magnetic" href="Lokeshwaran_G_Resume.pdf" download>Download Resume</a>
+        <a class="btn ghost magnetic" href="assets/resume.pdf" download>Download Resume</a>
         <a class="btn icon ghost" href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener" aria-label="GitHub"><svg width="22" height="22"><use href="#i-gh"/></svg></a>
         <a class="btn icon ghost" href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22"><use href="#i-in"/></svg></a>
       </div>
@@ -332,7 +332,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
 </main>
 
 <footer class="foot"><div class="wrap foot-in">
-  <p>&copy; <span id="yr"></span> Lokeshwaran G .</p>
+  <p>&copy; <span id="yr"></span> Lokeshwaran G. Built with HTML, CSS and JavaScript.</p>
   <nav aria-label="Footer"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
     <a href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener">LinkedIn</a></nav>
   <a class="btn btn-sm ghost" href="#top">Back to top</a>
@@ -369,9 +369,10 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
   $$('main section[id]').forEach(s => spy.observe(s));
 
   /* ---------- Typewriter ---------- */
-  const roles = ['AWS Cloud & DevOps Engineer', 'Cloud Enthusiast', 'Automation & CI/CD Learner'];
+  const roles = ['AWS Cloud & DevOps Engineer', 'Automation & CI/CD Learner', 'Cloud Enthusiast'];
   const typed = $('#typed');
   if (!reduce) {
+    /* Normal: typing and deleting effect */
     let r = 0, i = 0, del = false;
     const tick = () => {
       const w = roles[r];
@@ -382,6 +383,13 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
       setTimeout(tick, t);
     };
     typed.textContent = ''; tick();
+  } else {
+    /* Reduced motion: no typing, just swap the text every 2.5 seconds */
+    let r = 0;
+    setInterval(() => {
+      r = (r + 1) % roles.length;
+      typed.textContent = roles[r];
+    }, 2500);
   }
 
   /* ---------- Scroll reveal (staggered) ---------- */
